@@ -2,12 +2,12 @@ package boardgame;
 
 public class Board {
     private int rows;
-    private int collums;
+    private int collum;
     private Piece[][] pieces;
 
     public Board(int rows,int collums) {
         this.rows = rows;
-        this.collums = collums;
+        this.collum = collums;
         pieces = new Piece[rows][collums];
     }
 
@@ -19,11 +19,18 @@ public class Board {
         this.rows = rows;
     }
 
-    public int getCollums() {
-        return collums;
+    public int getCollum() {
+        return collum;
     }
 
-    public void setCollums(int collums) {
-        this.collums = collums;
+    public void setCollum(int collum) {
+        this.collum = collum;
+    }
+
+    public Piece piece(int row, int collum){
+        return pieces[row][collum];
+    }
+    public Piece piece(Position position){
+        return pieces[position.getRow()][position.getCollum()];
     }
 }
