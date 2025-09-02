@@ -29,6 +29,14 @@ public class Board {
         return pieces[position.getRow()][position.getColumn()];
     }
 
+    public Piece piece(int row, int column) {
+        if (!positionExists(row, column)) {
+            throw new BoardException("Position not on the board");
+        }
+        return pieces[row][column];
+    }
+
+
     public void placePiece(Piece piece, Position position) {
         if (thereIsAPiece(position)) {
             throw new BoardException("there is already a piece on position " + position);
